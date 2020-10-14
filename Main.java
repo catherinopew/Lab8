@@ -36,10 +36,10 @@ public class Main {
     }
 
     public static void openDoor(Door d) {
-        d.examine();
-        d.menu();
+        System.out.println(d.examine());
+        System.out.println(d.menu());
         int option = CheckInput.getPositiveInt();
-        d.unlock(option);
+        System.out.println(d.unlock(option));
         d.open();
         
         while (d.open() == false) {
