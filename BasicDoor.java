@@ -1,9 +1,18 @@
+import java.util.Random;
+
 public class BasicDoor implements Door{
     private boolean push;
     private boolean input;
 
     public BasicDoor() {
-        push = false;
+        Random rand = new Random();
+        int randomNum = rand.nextInt(3) + 1;
+        if (randomNum == 1) {
+            push = true;
+        }
+        else {
+            push = false;
+        }
         input = false;
     }
 
@@ -14,29 +23,35 @@ public class BasicDoor implements Door{
 
     @Override 
     public String menu() {
-        return "1. Push\n2.Pull";
+        return "1. Push\n2. Pull";
     }
 
     @Override
     public String unlock(int option) {
-        input = true;
-        if (option == 1) {
-            push = true;
-            return success();
+        if (option == 1 && push == true) {
+            input = true;
+            return "You push the door.";
+        }
+        else if (option == 1 && push == false) {
+            return "You push the door.";
+        }
+        else if (option == 2 && push == false) {
+            input = true;
+            return "You pulled the door.";
         }
         else {
-            return clue();
+            return "You pulled the door.";
         }
     }
 
     @Override
     public boolean open() {
-        return push = true;
+        return input;
     }
 
     @Override 
     public String clue() {
-        return "Try the other door.";
+        return "Try the other direction.";
     }
     
     @Override 
