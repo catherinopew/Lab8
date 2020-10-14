@@ -6,7 +6,7 @@ public class ComboDoor implements Door {
 	/**
 	 * Combination value to unlock door and user's guess
 	 */
-	int comboValue, guess;
+	private int comboValue, guess;
 
 	/**
 	 * Constructs a combination door with a random value to unlock, and sets user's
