@@ -40,6 +40,7 @@ public class Main {
 				openDoor(d);
 			}
 		}
+		System.out.println("Congratulations! You were the only one to survive...alone...FOREVER!");
 	}
 
 	/**
