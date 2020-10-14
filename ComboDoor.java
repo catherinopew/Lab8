@@ -50,7 +50,7 @@ public class ComboDoor implements Door {
 		guess = choice;
 
 		if (guess == comboValue) {
-			return "Looks like the bolts are about to fall...";
+			return "Looks like the combination is rusting...";
 		}
 
 		return "The combination is turning, but your number will not unlock this door.";
