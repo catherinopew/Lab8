@@ -41,7 +41,7 @@ public class BasicDoor implements Door {
      */
     @Override
     public String unlock(int option) {
-        if (option >= 1 || option <= 2) {
+        if (option >= 1 && option <= 2) {
             if (option == 1 && push == true) {
                 input = true;
                 return "You push the door.";
