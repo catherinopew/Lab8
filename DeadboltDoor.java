@@ -104,7 +104,7 @@ public class DeadboltDoor implements Door {
 	 */
 	@Override
 	public String success() {
-		return "Congratulations! While others failed, you survived...alone...forever";
+		return "You unlocked both deadbolts and opened the door";
 	}
 
 }
