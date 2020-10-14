@@ -4,7 +4,6 @@
  * @version 10/13/2020
  * Copyright (C) 2020 Marvin Barajas and Catherine Bui. All Rights Reserved.
  */
-
 import java.util.Random;
 
 public class Main {
@@ -12,11 +11,11 @@ public class Main {
         System.out.println("Welcome to the Escape Room.");
         System.out.println("You must unlock 3 doors to escape...");
 
-        Random rand = new Random();
-        int doorNum = rand.nextInt(4) + 1, doors = 3;
-
-        while (doors != 0) {
-        	if (doorNum == 1) {
+        for (int i = 0; i < 3; i++) {
+            Random rand = new Random();
+            int doorNum = rand.nextInt(4) + 1;
+    
+            if (doorNum == 1) {
                 Door d = new BasicDoor();
                 System.out.println("You encountered a basic door.");
                 openDoor(d);
@@ -36,10 +35,7 @@ public class Main {
                 System.out.println("You encountered a combination door.");
                 openDoor(d);
             }
-        	doorNum = rand.nextInt(4) + 1;
-        	doors--;
         }
-        
     }
 
     public static void openDoor(Door d) {
