@@ -57,20 +57,22 @@ public class DeadboltDoor implements Door {
 	public String unlock(int choice) {
 		try {
 			if (choice == 1) {
-				if (!bolt1) {
+				bolt1 = !bolt1;
+				if (bolt1 == false) {
 					return "One of the bolts was unlocked.";
-				} else {
-					bolt1 = false;
-					return "It feels like one of the bolts is unlocked";
+				}
+				else {
+					return "It's locked.";
 				}
 			}
 
 			else if (choice == 2) {
-				if (!bolt2) {
+				bolt2 = !bolt2;
+				if (bolt2 == false) {
 					return "One of the bolts was unlocked.";
-				} else {
-					bolt2 = false;
-					return "It feels like one of the bolts is unlocked";
+				}
+				else {
+					return "It's locked.";
 				}
 			}
 
