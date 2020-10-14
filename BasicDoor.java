@@ -1,12 +1,20 @@
 import java.util.Random;
 
-public class BasicDoor implements Door{
+/** A basic type of door that can be opened 
+ * if it is pushed or pulled 
+ */
+public class BasicDoor implements Door {
+    /** A boolean variable that determines whether push will unlock the door */
     private boolean push;
+    /** A boolean variable that determines if the user input will unlock the door */
     private boolean input;
 
+    /** Constructs a basic door
+     * Whether push is true or false is randomized
+     */
     public BasicDoor() {
         Random rand = new Random();
-        int randomNum = rand.nextInt(3) + 1;
+        int randomNum = rand.nextInt(2) + 1;
         if (randomNum == 1) {
             push = true;
         }
@@ -16,46 +24,57 @@ public class BasicDoor implements Door{
         input = false;
     }
 
+    /** Examines the door to read the description */
     @Override
     public String examine() {
         return "A door that can be pushed or pulled.";
     }
 
+    /** Displays the option menu */
     @Override 
     public String menu() {
         return "1. Push\n2. Pull";
     }
 
+    /** Determines whether the door should be unlocked based on user input
+     * Displays a message of the user's chosen action
+     */
     @Override
     public String unlock(int option) {
-        if (option == 1 && push == true) {
-            input = true;
-            return "You push the door.";
-        }
-        else if (option == 1 && push == false) {
-            return "You push the door.";
-        }
-        else if (option == 2 && push == false) {
-            input = true;
-            return "You pulled the door.";
-        }
-        else {
-            return "You pulled the door.";
-        }
+        if (option >= 1 || option <= 2) {
+            if (option == 1 && push == true) {
+                input = true;
+                return "You push the door.";
+            }
+            else if (option == 1 && push == false) {
+                return "You push the door.";
+            }
+            else if (option == 2 && push == false) {
+                input = true;
+                return "You pulled the door.";
+            }
+            else {
+                return "You pulled the door.";
+            }
+        } 
+        return "Invalid input.";
     }
 
+    /** Returns true if the door is able to be unlocked */
     @Override
     public boolean open() {
         return input;
     }
 
+    /** Gives the user a clue if the door can't be opened */
     @Override 
     public String clue() {
         return "Try the other direction.";
     }
     
+    /** Congratulates the user if the door is successfully opened */
     @Override 
     public String success() {
-        return "Congratulations, you opened a door.";
+        return "Congratulations, you opened the door.";
     }
 }
