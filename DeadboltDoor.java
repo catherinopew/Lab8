@@ -1,4 +1,4 @@
-import java.util.InputMismatchException;
+import java.util.*;
 
 /**
  * Door with deadbolt locks
@@ -7,14 +7,23 @@ public class DeadboltDoor implements Door {
 	/**
 	 * Bolts on door. True if bolt is attached, false if removed.
 	 */
-	boolean bolt1, bolt2;
+	private boolean bolt1, bolt2;
 
 	/**
 	 * Constructs a door with 1 bolt removed and another attached
 	 */
 	public DeadboltDoor() {
-		bolt1 = false;
-		bolt2 = true;
+		Random rand = new Random();
+		int randNum = rand.nextInt(2) + 1;
+		
+		if (randNum == 2) {
+			bolt1 = false;
+			bolt2 = true;
+		}
+		else {
+			bolt1 = true;
+			bolt2 = false;
+		}
 	}
 
 	/**
@@ -48,20 +57,20 @@ public class DeadboltDoor implements Door {
 	public String unlock(int choice) {
 		try {
 			if (choice == 1) {
-				bolt1 = !bolt1; // invert status of bolt 1
-				if (bolt1) {
-					return "You toggled the bolt, but now it is as sealed as your fate";
+				if (!bolt1) {
+					return "One of the bolts was unlocked.";
 				} else {
-					return "One of the bolts is unlocked.";
+					bolt1 = false;
+					return "It feels like one of the bolts is unlocked";
 				}
 			}
 
 			else if (choice == 2) {
-				bolt2 = !bolt2; // invert status of bolt 2
-				if (bolt1) {
-					return "You toggled the bolt, but now it is as sealed as your fate";
+				if (!bolt2) {
+					return "One of the bolts was unlocked.";
 				} else {
-					return "One of the bolts is unlocked.";
+					bolt2 = false;
+					return "It feels like one of the bolts is unlocked";
 				}
 			}
 
@@ -80,7 +89,7 @@ public class DeadboltDoor implements Door {
 	 */
 	@Override
 	public boolean open() {
-		if (bolt1 == bolt2 == true) {
+		if (bolt1 == bolt2 == false) {
 			return true;
 		}
 
