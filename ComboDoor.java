@@ -13,7 +13,8 @@ public class ComboDoor implements Door {
 	 * guess to 0
 	 */
 	public ComboDoor() {
-		comboValue = (int) (Math.random() * ((10 - 1) + 1));
+		Random rand = new Random();
+		comboValue = rand.nextInt(10) + 1;
 		guess = 0;
 	}
 
