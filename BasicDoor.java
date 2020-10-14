@@ -24,20 +24,24 @@ public class BasicDoor implements Door {
         input = false;
     }
 
-    /** Examines the door to read the description */
+    /** Examines the door to read the description
+     * @String the door description
+     */
     @Override
     public String examine() {
         return "A door that can be pushed or pulled.";
     }
 
-    /** Displays the option menu */
+    /** Displays the option menu 
+     * @return the menu options
+    */
     @Override 
     public String menu() {
         return "1. Push\n2. Pull";
     }
 
-    /** Determines whether the door should be unlocked based on user input
-     * Displays a message of the user's chosen action
+    /** Determines the action based on the user's selection
+     * @return String a message of the user's chosen action
      */
     @Override
     public String unlock(int option) {
@@ -60,19 +64,25 @@ public class BasicDoor implements Door {
         return "Invalid input.";
     }
 
-    /** Returns true if the door is able to be unlocked */
+    /** Returns true if the door is able to be unlocked 
+     * @return true if the door is opened, false otherwise
+     */
     @Override
     public boolean open() {
         return input;
     }
 
-    /** Gives the user a clue if the door can't be opened */
+    /** Gives the user a clue if the door can't be opened 
+     * @return String a clue
+     */
     @Override 
     public String clue() {
         return "Try the other direction.";
     }
     
-    /** Congratulates the user if the door is successfully opened */
+    /** Congratulates the user if the door is successfully opened 
+     * @return String congratulating the user
+     */
     @Override 
     public String success() {
         return "Congratulations, you opened the door.";
