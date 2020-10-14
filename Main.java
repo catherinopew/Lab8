@@ -43,14 +43,14 @@ public class Main {
         d.open();
         
         while (d.open() == false) {
-            d.clue();
-            d.menu();
+            System.out.println(d.clue());
+            System.out.println(d.menu());
             option = CheckInput.getPositiveInt();
-            d.unlock(option);
+            System.out.println(d.unlock(option));
             d.open();
         }
         if (d.open() == true) {
-            d.success();
+            System.out.println(d.success());
         }
     }
 }
