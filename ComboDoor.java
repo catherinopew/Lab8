@@ -1,9 +1,7 @@
-
+import java.util.Random;
 /**
  * Door with a combination lock
  */
-import java.util.Random;
-
 public class ComboDoor implements Door {
 	/**
 	 * Combination value to unlock door and user's guess
