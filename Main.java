@@ -1,4 +1,3 @@
-
 /**
  * Program to simulate an escape room with multiple doors
  * @author Group 16: Marvin Barajas and Catherine Bui
@@ -9,9 +8,7 @@
 import java.util.Random;
 
 public class Main {
-	/**
-	 * Main function to run program
-	 * 
+	/** Main function to run program
 	 * @param args arguments to be input into main
 	 */
 	public static void main(String[] args) {
@@ -43,9 +40,7 @@ public class Main {
 		System.out.println("Congratulations! You were the only one to survive...alone...FOREVER!");
 	}
 
-	/**
-	 * Interacts user with a locked door until it can be opened
-	 * 
+	/** Interacts user with a locked door until it can be opened
 	 * @param d door user will try to unlock
 	 */
 	public static void openDoor(Door d) {
