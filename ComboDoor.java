@@ -6,7 +6,7 @@ public class ComboDoor implements Door {
 	private int comboValue, guess;
 
 	/** Constructs a combination door with a random value to unlock, 
-   * and sets user's guess to 0
+     * and sets user's guess to 0
 	 */
 	public ComboDoor() {
 		Random rand = new Random();
@@ -31,7 +31,7 @@ public class ComboDoor implements Door {
 	}
 
 	/** Checks if the option is within the range 
-   * and sets guess to become the option
+     * and sets guess to become the option
 	 * @return String related to user action
 	 */
 	@Override
@@ -74,5 +74,4 @@ public class ComboDoor implements Door {
 	public String success() {
 		return "You found the right value and opened the door.";
 	}
-
 }
