@@ -1,12 +1,11 @@
+import java.util.Random;
+
 /**
  * Program to simulate an escape room with multiple doors
  * @author Group 16: Marvin Barajas and Catherine Bui
  * @version 10/13/2020
  * Copyright (C) 2020 Marvin Barajas and Catherine Bui. All Rights Reserved.
  */
-
-import java.util.Random;
-
 public class Main {
 	/** Main function to run program
 	 * @param args arguments to be input into main
@@ -18,7 +17,7 @@ public class Main {
 		for (int i = 0; i < 3; i++) {
 			Random rand = new Random();
 			int doorNum = rand.nextInt(4) + 1;
-
+			
 			if (doorNum == 1) {
 				Door d = new BasicDoor();
 				System.out.println("You encountered a basic door.");
