@@ -1,8 +1,6 @@
 import java.util.Random;
 
-/** A basic type of door that can be opened 
- * if it is pushed or pulled 
- */
+/** A basic type of door that can be opened if it is pushed or pulled */
 public class BasicDoor implements Door {
     /** A boolean variable that determines whether push will unlock the door */
     private boolean push;
@@ -34,7 +32,7 @@ public class BasicDoor implements Door {
 
     /** Displays the option menu 
      * @return the menu options
-    */
+     */
     @Override 
     public String menu() {
         return "1. Push\n2. Pull";
