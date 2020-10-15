@@ -1,12 +1,10 @@
 import java.util.Scanner;
+
 /** 
  * Static functions used to check console input for validity.
- *
  * Use:	Place CheckInput class in the same project folder as your code.
- *	Call CheckInput functions from your code using "CheckInput."
- *
+ * Call CheckInput functions from your code using "CheckInput."
  * Example:  int num = CheckInput.getInt();
- *
  * @author Shannon Cleary 2020
  */
 public class CheckInput {
