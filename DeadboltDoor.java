@@ -1,17 +1,11 @@
 import java.util.*;
 
-/**
- * Door with deadbolt locks
- */
+/** Door with deadbolt locks */
 public class DeadboltDoor implements Door {
-	/**
-	 * Bolts on door. True if bolt is attached, false if removed.
-	 */
+	/** Bolts on door. True if bolt is attached, false if removed. */
 	private boolean bolt1, bolt2;
 
-	/**
-	 * Constructs a door with 1 bolt removed and another attached
-	 */
+	/** Constructs a door with 1 bolt removed and another attached */
 	public DeadboltDoor() {
 		Random rand = new Random();
 		int randNum = rand.nextInt(2) + 1;
@@ -26,9 +20,7 @@ public class DeadboltDoor implements Door {
 		}
 	}
 
-	/**
-	 * Returns a string description of the door
-	 * 
+	/** Returns a string description of the door
 	 * @return string description of the door
 	 */
 	@Override
@@ -36,9 +28,7 @@ public class DeadboltDoor implements Door {
 		return "A door with two deadbolts. Both need to be unlocked for the door to open, but you can’t tell if they are locked or unlocked";
 	}
 
-	/**
-	 * Returns list of options user can do to unlock the door
-	 * 
+	/** Returns list of options user can do to unlock the door
 	 * @return list of options user can do to unlock the door
 	 */
 	@Override
@@ -46,17 +36,15 @@ public class DeadboltDoor implements Door {
 		return "1. Toggle Bolt 1\n" + "2. Toggle Bolt 2";
 	}
 
-	/**
-	 * passes in the user’s menu selection, checks that it is in the bounds of the
+	/** Passes in the user’s menu selection, checks that it is in the bounds of the
 	 * menu choices, and then performs the action associated with that choice in the
 	 * attempt to open the door
-	 * 
 	 * @return text related to user action
 	 */
 	@Override
-	public String unlock(int choice) {
-		try {
-			if (choice == 1) {
+	public String unlock(int option) {
+		if (option >= 1 && option <= 2) {
+			if (option == 1) {
 				bolt1 = !bolt1;
 				if (bolt1 == false) {
 					return "One of the bolts was unlocked.";
@@ -65,8 +53,7 @@ public class DeadboltDoor implements Door {
 					return "It's locked.";
 				}
 			}
-
-			else if (choice == 2) {
+			else if (option == 2) {
 				bolt2 = !bolt2;
 				if (bolt2 == false) {
 					return "One of the bolts was unlocked.";
@@ -75,47 +62,34 @@ public class DeadboltDoor implements Door {
 					return "It's locked.";
 				}
 			}
-
-			else {
-				return "Not a valid menu selection.";
-			}
-		} catch (InputMismatchException e) {
-			return "Invalid Input";
 		}
+		return "Invalid input.";
 	}
 
-	/**
-	 * Tests to see if door has been unlocked
-	 * 
+	/** Tests to see if door has been unlocked
 	 * @return true if unlocked. False otherwise
 	 */
 	@Override
 	public boolean open() {
-		if (bolt1 == bolt2 == false) {
+		if (bolt1 == false && bolt2 == false) {
 			return true;
 		}
-
 		return false;
 	}
 
-	/**
-	 * Returns a clue to help user unlock the door
-	 * 
+	/** Returns a clue to help user unlock the door
 	 * @return clue to help user unlock the door
 	 */
 	@Override
 	public String clue() {
-		return "One is in the correct position";
+		return "One is in the correct position.";
 	}
 
-	/**
-	 * Returns success message for the door
-	 * 
+	/** Returns success message for the door
 	 * @return success message for the door
 	 */
 	@Override
 	public String success() {
-		return "You unlocked both deadbolts and opened the door";
+		return "You unlocked both deadbolts and opened the door.";
 	}
-
 }
