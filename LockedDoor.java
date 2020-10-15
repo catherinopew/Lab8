@@ -1,7 +1,7 @@
 import java.util.Random;
 
 /** A basic type of door that can be opened 
- * if the key is found
+ * if the key is found.
  */
 public class LockedDoor implements Door{
     /** An integer variable that determines if the key is found at a certain location */
